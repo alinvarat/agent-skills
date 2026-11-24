@@ -1,0 +1,36 @@
+{
+  "doc": "receipt",
+  "out_dir": "~/Quotes",
+  "job_slug": "pulse-order",
+  "title": "PULSE",
+  "date": "2026-11-08",
+  "number": "019",
+  "seller_name": "นายตัวอย่าง นามสมมติ",
+  "customer": "",
+  "items": [
+    {
+      "desc": "PulseMiniV2.2",
+      "qty": 2,
+      "unit": "ชิ้น",
+      "price": 1290
+    },
+    {
+      "desc": "Pulse16Mux V3",
+      "qty": 2,
+      "unit": "ชิ้น",
+      "price": 990
+    },
+    {
+      "desc": "ชุดทดเฟืองพร้อมล้อยาง N60",
+      "qty": 2,
+      "unit": "คู่",
+      "price": 800
+    },
+    {
+      "desc": "มอเตอร์ N20 Carbon Brush 2000 RPM",
+      "qty": 1,
+      "unit": "คู่",
+      "price": 400
+    }
+  ]
+}
