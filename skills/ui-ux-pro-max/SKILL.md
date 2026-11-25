@@ -1,6 +1,6 @@
 ---
 name: ui-ux-pro-max
-description: Search local UI design systems, accessibility guidelines, patterns and stack-specific implementation advice for web, mobile and desktop.
+description: Search local UI design systems, accessibility guidelines, patterns and stack-specific implementation advice for web, mobile and desktop, including fixing contrast/WCAG or UX issues in an existing UI.
 ---
 
 # UI/UX Pro Max - Design Intelligence
