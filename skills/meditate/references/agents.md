@@ -1,0 +1,6 @@
+# Audit subagent prompts (Sonnet, read-only)
+## Memory auditor
+Inputs: the memory snapshot path and the auto-memory path. Check each record against the current machine (does the file, tool, service or decision still exist). Flag: Outdated (refers to things that no longer exist or changed), Redundant (said elsewhere), Low-value (fails "would the model get this wrong without it, and does it matter often?"), Verbose, Orphaned (not linked from an index), Contradicting (two records disagree; name both). Also flag stale session state (old session IDs, finished tasks) and duplicates between the shared memory and the Claude auto-memory. Return a report with path, flag, evidence and suggested action. Change nothing.
+
+## Skill auditor
+Inputs: the skills snapshot. For each skill check: the description names real triggers and does not load for unrelated work; steps are executable and in order; no repeated policy; no contradiction with `shared-agent-rules.md`, `CLAUDE.md` or another skill; no broken reference links; a rule that could be a script or config check instead of prose. Audit descriptions for bloat (cut what the model can infer; keep distinctive triggers). Return path, finding, proposed fix. Change nothing.
