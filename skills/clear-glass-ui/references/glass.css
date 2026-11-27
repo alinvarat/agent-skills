@@ -1,0 +1,49 @@
+/* Clear-glass UI tokens and rules. Copy into the page's :root and stylesheet.
+   Values are the ones the user approved on a 360° photo tour (2026-11-27). */
+:root {
+  --glass: oklch(20% 0.015 60 / 0.1);          /* panels, buttons: almost clear smoked tint */
+  --glass-thick: oklch(20% 0.015 60 / 0.3);    /* forms and dialogs only */
+  --glass-thin: oklch(100% 0 0 / 0.08);        /* thumbnails' mats, option cards */
+  --glass-edge: oklch(100% 0 0 / 0.34);        /* top highlight line */
+  --glass-line: oklch(100% 0 0 / 0.22);        /* 1px outline and dividers */
+  --glass-sheen: oklch(100% 0 0 / 0.1);        /* diagonal light on panels */
+  --glass-blur: blur(2px) saturate(1.15);
+  --glass-blur-sm: blur(1.5px) saturate(1.1);
+  --shadow-glass: inset 0 1px 0 var(--glass-edge), inset 0 0 0 1px var(--glass-line), 0 10px 28px -16px oklch(10% 0.02 55 / 0.45);
+  --on-glass: oklch(99% 0.003 85);
+  --on-glass-2: oklch(97% 0.005 80 / 0.92);
+  --on-glass-muted: oklch(97% 0.005 80 / 0.74);
+  --on-glass-rule: oklch(100% 0 0 / 0.26);
+  --text-lift: 0 1px 2px oklch(0% 0 0 / 0.65), 0 0 8px oklch(0% 0 0 / 0.35);
+  --pill-light: oklch(98% 0.005 80 / 0.92);    /* primary action: solid light pill */
+  --ink-dark: oklch(19% 0.024 52);             /* text on the light pill */
+  --radius-card: 16px; --radius-pill: 999px;
+}
+
+.glass {
+  background: linear-gradient(160deg, var(--glass-sheen), transparent 42%), var(--glass);
+  -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-card);
+  color: var(--on-glass-2);
+  text-shadow: var(--text-lift);
+  color-scheme: dark;                            /* native date pickers and icons turn light */
+}
+.glass--dialog {
+  background: linear-gradient(160deg, var(--glass-sheen), transparent 30%), var(--glass-thick);
+  -webkit-backdrop-filter: blur(6px) saturate(1.2); backdrop-filter: blur(6px) saturate(1.2);
+}
+.glass .primary {                                /* the one solid thing on screen */
+  background: var(--pill-light); color: var(--ink-dark); text-shadow: none;
+  border-radius: var(--radius-pill);
+}
+.glass .secondary { background: var(--glass-thin); border: 1px solid var(--glass-edge); border-radius: var(--radius-pill); }
+
+/* Browsers without backdrop-filter: thicken so text stays readable. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: var(--glass-thick); }
+}
+
+/* Dim the scene behind a dialog with a plain tint. Do not blur the scrim
+   (Hallmark sloplint warns: glass panel over translucent black). */
+.scrim { background: oklch(19% 0.024 52 / 0.28); }
